@@ -169,8 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Obtener valores del formulario y eliminar los puntos antes de convertirlo a número
-        const sueldo = parseFloat(document.getElementById("sueldo").value.replace(/\./g, ""));
+        // Obtener valores del formulario
+        const sueldo = parseFloat(document.getElementById("sueldo").value.replace(/\./g, "")); // Eliminamos los puntos antes de convertirlo a número
         const despido = document.getElementById("despido").value;
         const contrato = tipoContrato.value;
         const fechaIngreso = new Date(document.getElementById("fechaIngreso").value);
@@ -244,3 +244,63 @@ function formatearNumero(valor) {
     return valor.replace(/\D/g, "")  // Eliminamos cualquier caracter no numérico
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ".");  // Añadimos puntos para separar los miles
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const newsSection = document.getElementById("news-section");
+
+    if (!newsSection) {
+        console.error("El elemento #news-section no se encuentra en el DOM.");
+        return;
+    }
+
+    // Tu clave de API de NewsAPI
+    const apiKey = "20d087b7f1734d82a1828d13d7f16889";  // Reemplaza con tu clave de API
+
+    // URL de la API para obtener noticias de Colombia
+    const url = `https://newsapi.org/v2/top-headlines?country=co&apiKey=${apiKey}`;
+
+    // Realizamos la solicitud a la API
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);  // Esto imprimirá la respuesta de la API en la consola
+            if (data.status === "ok" && data.articles.length > 0) {
+                // Iteramos sobre las noticias y las mostramos
+                const newsHTML = data.articles.map(article => {
+                    return `
+                        <div class="news-item">
+                            <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+                            <p>${article.description ? article.description : "No description available."}</p>
+                            <p><strong>Fuente:</strong> ${article.source.name}</p>
+                            <p><strong>Fecha de publicación:</strong> ${new Date(article.publishedAt).toLocaleDateString()}</p>
+                        </div>
+                    `;
+                }).join("");
+                newsSection.innerHTML = newsHTML;
+            } else {
+                newsSection.innerHTML = "<p>No se encontraron noticias para mostrar.</p>";
+            }
+        })
+        .catch(error => {
+            newsSection.innerHTML = "<p>Error al cargar las noticias.</p>";
+            console.error("Error fetching news:", error);
+        });
+});
+
+// Activar el cambio de fondo al hacer scroll
+window.onscroll = function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+};
+
+// Manejar la visibilidad del menú hamburguesa
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const navLinks = document.querySelector('.nav-links');
+
+hamburgerMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
