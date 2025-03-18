@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Prima de Servicios</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <!-- 🔥 NAVBAR -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">Mi Calculadora</a>
+        <ul class="nav-links">
+            <li><a href="../index.html">🏠 Inicio</a></li>
+            <li><a href="sueldo.html">💰 Calcular Sueldo</a></li>
+            <li><a href="vacaciones.html">🏖️ Calcular Vacaciones</a></li>
+            <li><a href="#">📊 Liquidación (Próximamente)</a></li>
+        </ul>
+    </nav>
+
+    <!-- 🔥 CONTENIDO PRINCIPAL -->
+    <div class="container">
+        <h1>Calculadora de Prima de Servicios</h1>
+
+        <label for="salarioPrima">Salario Mensual:</label>
+        <input type="text" id="salarioPrima" class="input-moneda" placeholder="Ingrese su salario">
+
+        <label for="auxilioPrima">¿Tiene derecho al Auxilio de Transporte?</label>
+        <select id="auxilioPrima">
+            <option value="0" selected>No</option>
+            <option value="200000">Sí (Aplica para salarios hasta $2.000.000)</option>
+        </select>
+
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" id="fechaInicio">
+
+        <label for="fechaFinal">Fecha Final:</label>
+        <input type="date" id="fechaFinal">
+
+        <button onclick="calcularPrima()">Calcular Prima</button>
+
+        <div id="resultadoPrima"></div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

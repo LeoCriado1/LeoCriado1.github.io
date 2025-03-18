@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Liquidación</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <!-- 🔥 NAVBAR -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">Mi Calculadora</a>
+        <ul class="nav-links">
+            <li><a href="../index.html">🏠 Inicio</a></li>
+            <li><a href="sueldo.html">💰 Calcular Sueldo</a></li>
+            <li><a href="vacaciones.html">🌴 Calcular Vacaciones</a></li>
+            <li><a href="prima.html">📈 Prima de Servicios</a></li>
+            <li><a href="liquidacion.html" class="active">📊 Liquidación</a></li>
+        </ul>
+    </nav>
+
+    <!-- 🔥 FORMULARIO -->
+    <div class="container">
+        <h1>📊 Cálculo de Liquidación</h1>
+        <form id="liquidacion-form">
+            
+            <label for="sueldo">💰 Sueldo mensual ($):</label>
+            <input type="text" id="sueldo" class="input-moneda" placeholder="Ej: 2000000" required>            
+            
+            <label for="despido">📌 ¿Despido injustificado?</label>
+            <select id="despido">
+                <option value="no">No</option>
+                <option value="si">Sí</option>
+            </select>
+            
+            <label for="tipoContrato">📃 Tipo de contrato:</label>
+            <select id="tipoContrato">
+                <option value="indefinido">Indefinido</option>
+                <option value="fijo">Término fijo</option>
+                <option value="obra">Obra labor</option>
+            </select>
+            
+            <div id="duracionContrato" style="display: none;">
+                <label for="duracion">📅 Duración del contrato (meses):</label>
+                <input type="number" id="duracion" placeholder="Ej: 12">
+            </div>
+            
+            <label for="fechaIngreso">📅 Fecha de ingreso:</label>
+            <input type="date" id="fechaIngreso" required>
+            
+            <label for="fechaRetiro">📅 Fecha de retiro:</label>
+            <input type="date" id="fechaRetiro" required>
+            
+            <label for="auxilioTransporte">🚗 ¿Tiene derecho a auxilio de transporte?</label>
+            <select id="auxilioTransporte">
+                <option value="no">No</option>
+                <option value="si">Sí</option>
+            </select>
+            <p class="info">ℹ️ Aplica para quienes ganan hasta 2 salarios mínimos.</p>
+            
+            <label for="diasVacaciones">🏖️ Días de vacaciones no tomados:</label>
+            <input type="number" id="diasVacaciones" placeholder="Ej: 5">
+            
+            <label for="calculoTiempo">⏳ ¿Calcular liquidación de todo el tiempo trabajado o solo el año/semestre en curso?</label>
+            <select id="calculoTiempo">
+                <option value="total">Todo el tiempo trabajado</option>
+                <option value="actual">Solo año/semestre en curso</option>
+            </select>
+            
+            <button type="submit">📊 Calcular Liquidación</button>
+        </form>
+        
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

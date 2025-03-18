@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Sueldo</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <!-- 🔥 NAVBAR MODERNA -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">Mi Calculadora</a>
+        <ul class="nav-links">
+            <li><a href="../index.html">🏠 Inicio</a></li>
+            <li><a href="vacaciones.html">🏖️ Vacaciones</a></li>
+            <li><a href="#">📈 Prima de Servicios (Próximamente)</a></li>
+            <li><a href="#">📊 Liquidación (Próximamente)</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Calcular Sueldo</h1>
+
+        <form id="formularioSueldo">
+            <label for="salario">Salario Mensual:</label>
+            <input type="text" id="salario" class="input-moneda" placeholder="Ingrese su salario" required>
+
+            <label for="auxilioTransporte">¿Tiene derecho al Auxilio de Transporte?</label>
+            <select id="auxilioTransporte">
+                <option value="0" selected>No</option>
+                <option value="200000">Sí (Aplica para salarios hasta $2.000.000)</option>
+            </select>
+
+            <label for="horaInicio">Hora de Entrada:</label>
+            <input type="time" id="horaInicio" required>
+
+            <label for="horaFin">Hora de Salida:</label>
+            <input type="time" id="horaFin" required>
+
+            <button type="button" onclick="calcularSueldo()">Calcular Sueldo</button>
+        </form>
+
+        <!-- Mensaje de error -->
+        <div id="error-message" class="error"></div>
+
+        <!-- Resultado -->
+        <div id="desprendible"></div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
