@@ -1,0 +1,195 @@
+/* ==== ESTILOS GENERALES ==== */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding-top: 70px; /* 🔥 Evita que el navbar tape contenido */
+}
+
+/* ==== NAVBAR MODERNO ==== */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* 🔥 Separa el logo de los botones */
+    align-items: center;
+    z-index: 1000;
+    height: 60px;
+    box-sizing: border-box; /* 🔥 Evita que el padding rompa el diseño */
+}
+
+/* 🔥 Logo a la izquierda */
+.navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* 🔥 Botones alineados a la derecha y ajustables */
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap; /* 🔥 Evita que los botones se vayan a otra línea innecesariamente */
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    transition: color 0.3s;
+    padding: 10px 15px; /* 🔥 Espaciado uniforme */
+    white-space: nowrap; /* 🔥 Evita que los textos de los botones se corten */
+}
+
+.navbar .nav-links a:hover {
+    color: #007bff;
+}
+
+/* ==== CONTENEDOR PRINCIPAL ==== */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* 🔥 Evita que el navbar lo tape */
+}
+
+/* ==== ESTILOS DEL HOME ==== */
+.home-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.news-section {
+    width: 50%;
+    background: #eef;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.options {
+    width: 40%;
+    text-align: left;
+}
+
+.options h2 {
+    margin-bottom: 15px;
+}
+
+/* ==== BOTONES ==== */
+button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.03);
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* ==== ESTILOS PARA LA PÁGINA DE SUELDO ==== */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+input.input-moneda {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* ==== ESTILOS DEL DESPRENDIBLE ==== */
+#desprendible {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background: #f8f9fa;
+    text-align: left;
+}
+
+#desprendible h2 {
+    color: #007bff;
+}
+
+/* ==== ENLACES ==== */
+a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+        flex-wrap: wrap; /* 🔥 En pantallas pequeñas, los botones se apilan si es necesario */
+    }
+
+    .home-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news-section, .options {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
